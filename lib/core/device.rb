@@ -742,7 +742,7 @@ class Device
     @driver.set_context(context)
   end
 
-  def grep_string(action = nil)
+  def grep_string(action)
 
     string = convert_value(action["Value"]) # incoming string
     greps = action["Greps"]
