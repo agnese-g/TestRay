@@ -742,6 +742,19 @@ class Device
     @driver.set_context(context)
   end
 
+  def grep_string(action)
+
+    string = convert_value(action["Value"]) # incoming string
+    greps = action["Greps"]
+
+    return if greps.nil?
+
+    greps.each do |grep|
+      log_info("Incoming string is " + string)
+      load_grep(grep, string)
+    end
+  end
+
   # parses the provided attribute value from element.
   # Accepts:
   #   Strategy
