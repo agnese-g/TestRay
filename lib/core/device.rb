@@ -250,6 +250,16 @@ class Device
     @driver.launch_app
   end
 
+  def force_launch_app_android(action = nil)
+    package_name = convert_value(action["Package"])
+    @driver.activate_app(package_name)
+  end
+  
+  def force_launch_app_ios(action = nil)
+    bundle_id = convert_value(action["Bundle"])
+    @driver.execute_script('mobile: launchApp', {'bundleId': bundle_id})
+  end
+
   # starts recording test execution. Whole desktop is recorded if 'udid' is not
   # set.
   # Accepts:
