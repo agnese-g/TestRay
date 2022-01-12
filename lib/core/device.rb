@@ -377,7 +377,7 @@ class Device
 
 #       mp4_video = @driver.stop_recording_screen
 #       File.open(name, "wb") { |f| f.write(Base64.decode64(mp4_video)) }
-      File.open(name, "wb") { |f| f.write(Base64.decode64(@driver.stop_recording_screen))
+      File.open(name, "wb") { |f| f.write(Base64.decode64(@driver.stop_recording_screen))}
 
       rm_cmd = "rm"
       if OS.windows?
